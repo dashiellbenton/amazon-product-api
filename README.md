@@ -1,6 +1,6 @@
 # Amazon Product Api (Unofficial)
 
-![NPM](https://img.shields.io/npm/l/amazon-buddy.svg?style=for-the-badge) ![npm](https://img.shields.io/npm/v/amazon-buddy.svg?style=for-the-badge)
+
 
 Very useful tool that is able to extract almost same amount of data as the official Amazon Product API
 
@@ -39,16 +39,10 @@ Very useful tool that is able to extract almost same amount of data as the offic
 
 ## Installation
 
-**Install from NPM**
+**Install from PyPI/local source**
 
 ```sh
-$ npm i -g amazon-buddy
-```
-
-**Install from YARN**
-
-```sh
-$ yarn global add amazon-buddy
+$ pip install .
 ```
 
 ## USAGE
@@ -116,7 +110,7 @@ $ amazon-buddy products -k 'vacuum cleaner' -n 40 --filetype csv
 ```
 
 **Output:
-1552945544582_products.csv**
+products-vacuum-cleaner-1552945544582.csv**
 
 #### Example 2
 
@@ -152,7 +146,7 @@ $ amazon-buddy reviews B01GW3H3U8 -n 100
 ```
 
 **Output:
-reviews(B01GW3H3U8)\_1589470878252**
+reviews-B01GW3H3U8-1589470878252**
 
 #### Example 6
 
@@ -163,7 +157,7 @@ $ amazon-buddy products -k 'xbox one' -n 300 --min-rating 3 --max-rating 4
 ```
 
 **Output:
-1552945544582_products.csv**
+products-vacuum-cleaner-1552945544582.csv**
 
 #### Example 7
 
@@ -191,11 +185,13 @@ $ amazon-buddy categories --country GB
 
 ### Methods
 
-```javascript
-.products() - product search
-.reviews() - reviews search
-.asin() - single product details
-.categories() - available categories
+```python
+import amazon_buddy
+
+amazon_buddy.products({"keyword": "Xbox one"})  # product search
+amazon_buddy.reviews({"asin": "B01GW3H3U8"})  # reviews search
+amazon_buddy.asin({"asin": "B01GW3H3U8"})      # single product details
+amazon_buddy.categories({"country": "GB"})     # available categories
 ```
 
 ### Example
